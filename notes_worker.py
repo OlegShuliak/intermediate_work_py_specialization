@@ -59,6 +59,23 @@ def mod_note_id(file_name, note_id):
         add_to_file(file_name, note_list)
 
 
+def show_notes_date(file_name, date):
+    if os.path.exists(file_name):
+        note_list = read_file(file_name)
+        for dictionary in note_list:
+            search_date = dictionary.get('date')
+            if date in search_date:
+                print(dictionary)
+
+
+def show_note_id(file_name, note_id):
+    if os.path.exists(file_name):
+        note_list = read_file(file_name)
+        for dictionary in note_list:
+            if note_id == dictionary.get('id'):
+                print(dictionary)
+
+
 if __name__ == '__main__':
     note = add_note()
     print(note)
